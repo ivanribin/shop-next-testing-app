@@ -1,8 +1,9 @@
-import FullScreenLoader from "src/shared/FullScreenLoader";
-import type { ReactElement } from "react";
+import type {ReactElement} from 'react';
+
+import {FullScreenLoader} from '@shared/FullScreenLoader';
 
 const Loading = (): ReactElement => {
-    return <FullScreenLoader />
+    return <FullScreenLoader />;
 };
 
 export default Loading;

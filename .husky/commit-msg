@@ -1,0 +1,16 @@
+#!/bin/sh
+commit_msg_file="$1"
+commit_msg=$(cat "$commit_msg_file" | tr -d '\r')
+
+echo "🔍 Commit message: '$commit_msg'"
+
+if ! echo "$commit_msg" | grep -Eq '^(feat|fix|chore|hotfix|refactor):\s+[A-Z].+'; then
+  echo "❌ Invalid commit message format"
+  echo ""
+  echo "✅ Allowed format: <type>: Capitalized message"
+  echo "   Example: feat: Add login screen"
+  echo "   Allowed types: feat, fix, chore, hotfix, refactor"
+  exit 1
+fi
+
+echo "✅ Commit message format is valid"

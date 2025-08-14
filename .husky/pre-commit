@@ -1,0 +1,10 @@
+#!/bin/sh
+echo "🛠️ Running app build before push..."
+
+# Run your build step
+if ! npm run build; then
+  echo "❌ App build failed. Push aborted."
+  exit 1
+fi
+
+echo "✅ Build successful. Proceeding with push."

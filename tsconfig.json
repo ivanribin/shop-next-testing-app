@@ -24,7 +24,7 @@
       "@assets/*": ["public/*"],
       "@views/*": ["src/views/*"],
       "@widgets/*": ["src/widgets/*"],
-      "@utils/*": ["src/utils/*"],
+      "@utils/*": ["src/shared/utils/*"],
       "@features/*": ["src/features/*"],
       "@store/*": ["src/store/*"],
       "@entities/*": ["src/entities/*"],

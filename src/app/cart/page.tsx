@@ -1,8 +1,9 @@
-import CartPage from "@views/CartPage";
-import { type ReactElement } from "react";
+import {type ReactElement} from 'react';
+
+import {CartPage} from '@views/CartPage';
 
 const Cart = (): ReactElement => {
-    return <CartPage />
+    return <CartPage />;
 };
 
 export default Cart;

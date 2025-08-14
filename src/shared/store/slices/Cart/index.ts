@@ -1,5 +1,5 @@
-import { type IProduct } from "@entities/Product/types";
 import { createSlice, Slice, PayloadAction } from "@reduxjs/toolkit";
+import { IProduct } from "@entities/Product";
 
 export interface ICartSlice {
     addedProducts: IProduct[];

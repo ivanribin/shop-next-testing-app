@@ -1,5 +1,5 @@
-import type { IProduct } from "@entities/Product/types";
 import { createSlice, type PayloadAction, type Slice } from "@reduxjs/toolkit";
+import { IProduct } from "@entities/Product";
 
 export interface IMarketSlice {
     loadedProducts: IProduct[];
