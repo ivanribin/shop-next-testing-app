@@ -1,0 +1,11 @@
+.header {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(61, 59, 59);
+    z-index: 2;
+    box-shadow: 0 0 10px 20px rgba(56, 55, 55, 0.345);
+}
