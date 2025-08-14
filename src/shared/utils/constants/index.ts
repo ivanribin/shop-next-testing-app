@@ -48,4 +48,4 @@ export const isAddedToCart = (
     );
 };
 
-console.log('CHECK');
+console.log('CHECK 2');
