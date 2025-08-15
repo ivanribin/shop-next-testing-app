@@ -47,5 +47,3 @@ export const isAddedToCart = (
         ) !== -1
     );
 };
-
-console.log('CHECK 2');

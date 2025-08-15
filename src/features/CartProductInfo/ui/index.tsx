@@ -4,6 +4,7 @@ import {type MouseEvent, type ReactElement, useState} from 'react';
 import {useDispatch} from 'react-redux';
 
 import {IProduct} from '@entities/Product';
+import {ImageSkeleton} from '@shared/ImageSkeleton';
 import {removeProduct} from '@shared/store/slices/Cart';
 import {delay} from '@shared/utils/constants';
 
@@ -15,8 +16,15 @@ export interface ICartProductInfoProps {
 
 const CartProductInfo = ({product}: ICartProductInfoProps): ReactElement => {
     const [isDeleting, setIsDeleting] = useState<boolean>(false);
+    const [isImageLoaded, setIsImageLoaded] = useState<boolean>(false);
 
     const dispatch = useDispatch();
+
+    const handleImageLoad = async (): Promise<void> => {
+        await delay(2000);
+
+        setIsImageLoaded(true);
+    };
 
     const handleClick = async (
         event: MouseEvent<HTMLButtonElement>,
@@ -37,12 +45,16 @@ const CartProductInfo = ({product}: ICartProductInfoProps): ReactElement => {
             disabled={isDeleting}
             className="cart-product-info"
             onClick={handleClick}>
-            <Image
-                src={product.thumbnail}
-                alt={`${product.title} ${product.id}`}
-                width={200}
-                height={200}
-            />
+            <div className="image-wrapper">
+                <Image
+                    src={product.thumbnail}
+                    alt={`${product.title} ${product.id}`}
+                    width={200}
+                    height={200}
+                    onLoadingComplete={handleImageLoad}
+                />
+                {!isImageLoaded && <ImageSkeleton size={'100%'} zIndex={2} />}
+            </div>
             <h3>{product.title}</h3>
             <span>Price: ${product.price}</span>
         </button>

@@ -3,7 +3,7 @@ import {type ReactElement} from 'react';
 import ProductSkeleton from '../ProductSkeleton';
 import './style.css';
 
-const PRODUCT_SKELETON_COUNT: number = 6;
+const PRODUCT_SKELETON_COUNT: number = 9;
 
 const ProductsListSkeleton = (): ReactElement => {
     return (
