@@ -1,1 +1,1 @@
-export {default as CheckoutForm} from "./ui";
+export {default as CheckoutForm} from './ui';

@@ -1,5 +1,5 @@
-import { createSlice, Slice, PayloadAction } from "@reduxjs/toolkit";
-import { IProduct } from "@entities/Product";
+import {IProduct} from '@entities/Product';
+import {PayloadAction, Slice, createSlice} from '@reduxjs/toolkit';
 
 export interface ICartSlice {
     addedProducts: IProduct[];
@@ -12,7 +12,7 @@ const initialState: ICartSlice = {
 };
 
 const cartSlice: Slice<ICartSlice> = createSlice({
-    name: "cart",
+    name: 'cart',
     initialState,
     reducers: {
         addProduct: (state, action: PayloadAction<IProduct>) => {
@@ -20,20 +20,29 @@ const cartSlice: Slice<ICartSlice> = createSlice({
             state.cost += action.payload.price;
         },
         removeProduct: (state, action: PayloadAction<number>) => {
-            const removedProductIndex: number = state.addedProducts.findIndex((product: IProduct) => product.id === action.payload);
+            const removedProductIndex: number = state.addedProducts.findIndex(
+                (product: IProduct) => product.id === action.payload,
+            );
 
             if (removedProductIndex === -1) {
                 return;
-            };
+            }
 
-            const removedProductPrice: number = state.addedProducts[removedProductIndex].price;
+            const removedProductPrice: number =
+                state.addedProducts[removedProductIndex].price;
 
-            state.addedProducts = state.addedProducts.filter((product: IProduct) => product.id !== action.payload);
+            state.addedProducts = state.addedProducts.filter(
+                (product: IProduct) => product.id !== action.payload,
+            );
             state.cost -= removedProductPrice;
-        }
+        },
+        clearCart: (state) => {
+            state.addedProducts = [];
+            state.cost = 0;
+        },
     },
 });
 
-export const { addProduct, removeProduct} = cartSlice.actions;
+export const {addProduct, removeProduct} = cartSlice.actions;
 
 export default cartSlice.reducer;
