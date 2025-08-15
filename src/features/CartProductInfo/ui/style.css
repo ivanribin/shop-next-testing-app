@@ -36,6 +36,13 @@
   opacity: 1;
 }
 
+.cart-product-info .image-wrapper {
+  position: relative;
+
+  border-radius: 8px;
+  overflow: hidden;
+}
+
 .cart-product-info img {
   border-radius: 8px;
   object-fit: cover;
@@ -69,4 +76,3 @@
 .cart-product-info:disabled img {
   border-color: #666;
 }
-
