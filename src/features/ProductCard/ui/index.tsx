@@ -5,6 +5,7 @@ import {MouseEvent, type ReactElement} from 'react';
 import {useSelector} from 'react-redux';
 
 import {IProduct} from '@entities/Product';
+import {ImageWithFallback} from '@shared/ImageWithFallback';
 import {TRootState} from '@shared/store';
 import {isAddedToCart, routesData} from '@shared/utils/constants';
 
@@ -50,12 +51,11 @@ const ProductCard = ({product}: IProductCardProps): ReactElement => {
             {product.images.length > 0 && (
                 <div className="product-images">
                     {product.images.map((imageSrc, index: number) => (
-                        <Image
+                        <ImageWithFallback
                             key={index}
                             src={imageSrc}
                             alt={`${product.title} ${index}`}
-                            width={80}
-                            height={80}
+                            size={80}
                         />
                     ))}
                 </div>

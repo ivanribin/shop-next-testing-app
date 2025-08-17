@@ -1,0 +1,19 @@
+.image-wrapper {
+  position: relative;
+
+  border-radius: 8px;
+  overflow: hidden;
+
+  transition: all .35s;
+}
+
+.image-wrapper img {
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid #444;
+}
+
+.image-wrapper.disabled img {
+  border-color: #666;
+  filter: brightness(0.5);
+}
